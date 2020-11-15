@@ -1,0 +1,76 @@
+<?php
+namespace tests;
+
+require_once('../uteis/vendor/autoload.php');
+require_once('../models/prospects.php');
+require_once('../DAO/DAOProspect.php');
+
+use PHPUnit\Framework\TestCase;
+use models\prospects;
+use dao\DAOProspect;
+
+class ProspectTest extends TestCase{
+
+   /** @test */
+   public function testincluirProspect(){
+      $daoProspect = new DAOProspect();
+      try{
+         $this->assertEquals(
+            TRUE,    
+            $daoProspect->incluirProspect("999" "joao silva", "silva@gmail.com", "(49)98855-1222", "joao Silva", "(49)98855-1222")
+         );
+         unset($daoProspect);
+      }catch(\Exception $e){
+         $this->fail($e->getMessage());
+      }
+   }
+
+   /** @test */
+   public function testatualizarProspect(){
+      $daoProspect = new DAOProspect();
+      $prospects = new prospects();
+      try{
+         $prospects->addProspect( "joao silva", "silva@gmail.com", "(49)98855-1222", "joao Silva", "(49)98855-1222","999" TRUE);
+         $this->assertEquals(
+            $prospect,
+            $daoProspect->atualizarProspect("999" "joao silva", "silva@gmail.com", "(49)98855-1222", "joao Silva", "(49)98855-1222")
+         );
+      }
+      catch(\Exception $e){
+         $this->fail($e->getMessage());
+      }
+    }
+       /** @test */
+   public function testexcluirProspect(){
+    $daoProspect = new DAOProspect();
+    $prospects = new prospects();
+    try{
+       $prospects->addProspect( "joao silva", "silva@gmail.com", "(49)98855-1222", "joao Silva", "(49)98855-1222","999" TRUE);
+       $this->assertEquals(
+          $prospect,
+          $daoProspect->excluirProspect("999")
+       );
+    }
+    catch(\Exception $e){
+       $this->fail($e->getMessage());
+    }
+}
+     /** @test */
+   public function testbuscarProspect(){
+    $daoProspect = new DAOProspect();
+    $prospects = new prospects();
+    try{
+       $prospects->addProspect( "joao silva", "silva@gmail.com", "(49)98855-1222", "joao Silva", "(49)98855-1222","999" TRUE);
+       $this->assertEquals(
+          $prospect,
+          $daoProspect->buscarProspect("999" "joao silva", "silva@gmail.com", "(49)98855-1222", "joao Silva", "(49)98855-1222")
+       );
+    }
+    catch(\Exception $e){
+       $this->fail($e->getMessage());
+    }
+      unset($prospect);
+      unset($daoProspect);
+   }
+
+?>
