@@ -8,8 +8,8 @@ use models\prospects;
 
 /**
  * Classe DAO do prospects
- *  Esta classe È respons·vel por fazer a comunicaÁ„o com o banco de dados
- *  promovendo as funÁıes CRUD para os Prospects
+ *  Esta classe √© respons√°vel por fazer a comunica√ß√£o com o banco de dados
+ *  promovendo as fun√ß√µes CRUD para os Prospects
  * @author Isadora M. Skibinski 
  */
 
@@ -21,7 +21,7 @@ use models\prospects;
       *@param string $email email do prospect
       *@param string $login login do prospect
       *@param string $senha senha do prospect
-      *@return TRUE|Exception TRUE para inclus„o bem sucedida ou Exdeption para a inclus„o mal sucedida
+      *@return TRUE|Exception TRUE para inclus√£o bem sucedida ou Exdeption para a inclus√£o mal sucedida
       */
       public function incluirProspect($nome, $email, $celular, $facebook, $whatsapp){
         try {
@@ -40,7 +40,7 @@ use models\prospects;
         if(!$sqlInsert->error){
            $retorno = TRUE;
         }else{
-           throw new \Exception("N„o foi possÌvel incluir novo prospect!");
+           throw new \Exception("N√£o foi poss√≠vel incluir novo prospect!");
            die;
         }
         $conexaoDB->close();
@@ -48,13 +48,13 @@ use models\prospects;
         return $retorno;
      }
      /**
-      * Atualiza os dados de um prospect j· cadastrado no banco de dados
+      * Atualiza os dados de um prospect j√° cadastrado no banco de dados
       * @param string $nome Novo nome para o Prospect
       * @param string $email Novo email para o Prospect
       * @param string $celular Novo celular para o prospect
-      * @param string $facebook Novo endereÁo de facebook para o Prospect
-      * @param string $whatsapp Novo n˙mero de whatsapp para o Prospect
-      * @param string $codProspect CÛdigo do Prospect que deve ser alterado
+      * @param string $facebook Novo endere√ßo de facebook para o Prospect
+      * @param string $whatsapp Novo n√∫mero de whatsapp para o Prospect
+      * @param string $codProspect C√≥digo do Prospect que deve ser alterado
       * @return TRUE|Exception
       */
      public function atualizarProspect($nome, $email, $celular, $facebook, $whatsapp, $codProspect){
@@ -78,7 +78,7 @@ use models\prospects;
         if(!$sqlUpdate->error){
            $retorno = TRUE;
         }else{
-           throw new \Exception("N„o foi possÌvel alterar o prospect!");
+           throw new \Exception("N√£o foi poss√≠vel alterar o prospect!");
            die;
         }
         $conexaoDB->close();
@@ -87,7 +87,7 @@ use models\prospects;
      }
      /**
       * Exclui um prospect previamente cadastrado do banco de dados
-      * @param string $codProspect CÛdigo do Prospect que deve ser excluÌdo
+      * @param string $codProspect C√≥digo do Prospect que deve ser exclu√≠do
       * @return TRUE|Exception
       */
      public function excluirProspect($codProspect){
@@ -106,7 +106,7 @@ use models\prospects;
         if(!$sqlDelete->error){
            $retorno = TRUE;
         }else{
-           throw new \Exception("N„o foi possÌvel excluir o prospect!");
+           throw new \Exception("N√£o foi poss√≠vel excluir o prospect!");
            die;
         }
         $conexaoDB->close();
@@ -115,9 +115,9 @@ use models\prospects;
      }
      /**
       * Busca prospects do banco de dados
-      * @param string $email Email do Prospect que deve ser retornado. Este par‚metro È opcional
+      * @param string $email Email do Prospect que deve ser retornado. Este par√¢metro √© opcional
       * @return Array[Prospect] Se informado email, retorna somente o prospect relacionado.
-      * Sen„o, retornar· todos os prospects do banco de dados
+      * Sen√£o, retornar√° todos os prospects do banco de dados
       */
      public function buscarProspects($email=null){
         try {
@@ -125,7 +125,7 @@ use models\prospects;
         } catch (\Exception $e) {
            die($e->getMessage());
         }
-        /*Array que ser· retornado com um ou mais prospects*/
+        /*Array que ser√° retornado com um ou mais prospects*/
         $prospects = array();
   
         if($email === null){
