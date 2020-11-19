@@ -3,7 +3,7 @@ namespace model;
 
 
 /**
- * Classe Model do Usu·rio
+ * Classe Model do Usu√°rio
  * @author Isadora M. Skibinski 
  */
 
@@ -34,18 +34,18 @@ namespace model;
 
 
        /**
-      * Identifica se o usuario est· logado ou n„o
+      * Identifica se o usuario est√° logado ou n√£o
       * @var boolean 
       */
       public $logado;
 
       /**
-       * Carrega os atributos da classe usu·rio
-       * @param string $login Login do usu·rio
-       * @param string $nome nome do usu·rio 
-       * @param string $email email do usu·rio
-       * @param string $celular celular do usu·rio
-       * @param string $logado identifica se o usu·rio est· logado ou n„o
+       * Carrega os atributos da classe usu√°rio
+       * @param string $login Login do usu√°rio
+       * @param string $nome nome do usu√°rio 
+       * @param string $email email do usu√°rio
+       * @param string $celular celular do usu√°rio
+       * @param string $logado identifica se o usu√°rio est√° logado ou n√£o
        */
 
       public function addUsuario($login,$nome,$email,$celular, $logado ){
