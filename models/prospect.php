@@ -9,7 +9,7 @@ namespace models;
 
  class prospect{
     /**
-    * CÛdigo do Prospect
+    * C√≥digo do Prospect
     * @var int
     */
     public $codigo;
@@ -34,13 +34,13 @@ namespace models;
 
 
        /**
-      * Identifica se o prospect est· facebook ou n„o
+      * Identifica se o prospect est√° facebook ou n√£o
       * @var boolean 
       */
       public $facebook;
 
        /**
-      * Identifica se o prospect est· whatsapp ou n„o
+      * Identifica se o prospect est√° whatsapp ou n√£o
       * @var boolean 
       */
       public $whatsapp;
@@ -48,12 +48,12 @@ namespace models;
 
       /**
        * Carrega os atributos da classe prospect
-       * @param string $codigo CÛdigo do Prospect
+       * @param string $codigo C√≥digo do Prospect
        * @param string $nome nome do prospect
        * @param string $email email do prospect
        * @param string $celular celular do prospect
-       * @param string $facebook identifica se o prospect est· no facebook ou n„o
-       * @param string $$whatsapp identifica se o prospect est· no whatsapp ou n„o
+       * @param string $facebook identifica se o prospect est√° no facebook ou n√£o
+       * @param string $$whatsapp identifica se o prospect est√° no whatsapp ou n√£o
        */
 
       public function addProspect($codProspect, ,$nome,$email,$celular,$facebook, $whatsapp ){
