@@ -2,9 +2,9 @@
 
 namespace DAO;
 /**
- * Classe DAO do Usuário
- *  Esta classe é responsável por fazer a comunicação com o banco de dados
- *  promovendo as funções de logar e incluir novos usuários
+ * Classe DAO do UsuÃ¡rio
+ *  Esta classe Ã© responsÃ¡vel por fazer a comunicaÃ§Ã£o com o banco de dados
+ *  promovendo as funÃ§Ãµes de logar e incluir novos usuÃ¡rios
  * @author Isadora M. Skibinski 
  */
 
@@ -13,12 +13,12 @@ namespace DAO;
  use model\usuarios;
  class DAOUsuario{
      /**
-      * Loga um novo usuário no banco de dados 
-      *@param string $nome Nome do usuário
+      * Loga um novo usuÃ¡rio no banco de dados 
+      *@param string $nome Nome do usuÃ¡rio
       *@param string $email email do usuario
       *@param string $login login do usuario
       *@param string $senha senha do usuario
-      *@return TRUE|Exception TRUE para inclusão bem sucedida ou Exdeption para a inclusão mal sucedida
+      *@return TRUE|Exception TRUE para inclusÃ£o bem sucedida ou Exdeption para a inclusÃ£o mal sucedida
       */
     public function logar($logar,$senha){
         try{
@@ -35,7 +35,7 @@ namespace DAO;
             $resultado = $sql->get_result();
             if($resultado->num_rows === 0){
                 $usuario->addUsuario(null,null,null,FALSE);
-                throw new \Exception('Usuário ou senha inválidos');
+                throw new \Exception('UsuÃ¡rio ou senha invÃ¡lidos');
             }else{
                 while($linha = $resultado->fetch_assoc()){
                     $usuario->addUsuario($login['login'],$nome['nome'],$email['email'],$celular['celular'], TRUE);
@@ -52,9 +52,9 @@ namespace DAO;
     }
 
     /**
-      * Inclui um novo usuário no banco de dados 
-      *@param usuarios $usuario objeto do tipo usuario que deverá ser cadastrado
-      *@return TRUE|Exception TRUE para inclusão bem sucedida ou Exdeption para a inclusão mal sucedida
+      * Inclui um novo usuÃ¡rio no banco de dados 
+      *@param usuarios $usuario objeto do tipo usuario que deverÃ¡ ser cadastrado
+      *@return TRUE|Exception TRUE para inclusÃ£o bem sucedida ou Exdeption para a inclusÃ£o mal sucedida
       */
       public function incluirUsuario($nome,$email,$login,$senha){
         try{
@@ -68,7 +68,7 @@ namespace DAO;
         if(!$sqlInsert->error){
            $retorno = TRUE;
         }else{
-            throw new \Exception('Erro ao incluir novo usuário');
+            throw new \Exception('Erro ao incluir novo usuÃ¡rio');
         }
         $sqlInsert->close();
         $connDB->close();
