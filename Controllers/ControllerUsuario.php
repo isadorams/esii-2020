@@ -8,17 +8,17 @@ require_once($root .'DAO/DAOUsuarios.php');
 use DAO\DAOUsuarios;
 
 /**
- * Esta classe serve para tratar as regras de negócio pertinentes à
- * classe Usuário
- * Seu escopo limita-se às funções de entidade Usuário
+ * Esta classe serve para tratar as regras de negÃ³cio pertinentes Ã 
+ * classe UsuÃ¡rio
+ * Seu escopo limita-se Ã s funÃ§Ãµes de entidade UsuÃ¡rio
  * @author Isadora M. Skibinski
  */
  class ControllerUsuario{
      /**
       * Recebe os dados do login,faz o devido tratamento e envia para o DAO executar
       * no banco de dados
-      *@param string $login login do usuário
-      *@param string $senha senha do usuário
+      *@param string $login login do usuÃ¡rio
+      *@param string $senha senha do usuÃ¡rio
       *@return Usuario
       */
 
@@ -35,14 +35,14 @@ use DAO\DAOUsuarios;
       }
 
       /**
-       * Recebe e trata os dados do usuário e envia para o DAO
+       * Recebe e trata os dados do usuÃ¡rio e envia para o DAO
        * gravar no banco de dados
-       * @param string $nome Nome do usuário
-       * @param string $email email do usuário
-       * @param string $celular celular do usuário
-       * @param string $login Login do usuário
+       * @param string $nome Nome do usuÃ¡rio
+       * @param string $email email do usuÃ¡rio
+       * @param string $celular celular do usuÃ¡rio
+       * @param string $login Login do usuÃ¡rio
        * @param string $senha senha do usuario
-       *@return TRUE|Exception TRUE para inclusão bem sucedida ou Exdeption para a inclusão mal sucedida
+       *@return TRUE|Exception TRUE para inclusÃ£o bem sucedida ou Exdeption para a inclusÃ£o mal sucedida
        */
 
       public function salvarUsuario($nome,$email,$celular,$login,$senha){
@@ -52,6 +52,7 @@ use DAO\DAOUsuarios;
             }catch(\Excepion $e){
                 throw new \Exception($e->getMessage());
             }
+            return $retorno;
       }
  }
 
