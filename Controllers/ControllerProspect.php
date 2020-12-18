@@ -8,9 +8,9 @@ require_once($root .'DAO/DAOProspect.php');
 use DAO\DAOProspect;
 
 /**
- * Esta classe serve para tratar as regras de negócio pertinentes à
+ * Esta classe serve para tratar as regras de negÃ³cio pertinentes Ã 
  * classe Prospect
- * Seu escopo limita-se às funções de entidade Prospect
+ * Seu escopo limita-se Ã s funÃ§Ãµes de entidade Prospect
  * @author Isadora M. Skibinski
  */
  class ControllerProspect{
@@ -23,17 +23,63 @@ use DAO\DAOProspect;
        * @param string $celular celular do prospect
        * @param string $facebook facebook do prospect
        * @param string $whatsapp whatsapp do prospect
-       *@return TRUE|Exception TRUE para inclusão bem sucedida ou Exdeption para a inclusão mal sucedida
+       *@return TRUE|Exception TRUE para inclusÃ£o bem sucedida ou Exdeption para a inclusÃ£o mal sucedida
        */
 
       public function salvarProspect($nome, $email, $celular, $facebook, $whatsapp){
           $DAOProspect = new DAOProspect();
-          try{
-              $DAOProspect->incluirProspect($nome, $email, $celular, $facebook, $whatsapp);
-            }catch(\Excepion $e){
+         
+
+          if($prospect->codigo === null){
+             try{
+                $daoProspect->incluirProspect($prospect->nome, $prospect->email, $prospect->celular, $prospect->facebook,
+                                           $prospect->whatsapp);
+                return TRUE;
+             }catch(\Exception $e){
                 throw new \Exception($e->getMessage());
-            }
-      }
+             }
+          }else{
+             try{
+                $daoProspect->atualizarProspect($prospect->nome, $prospect->email, $prospect->celular, $prospect->facebook,
+                                                $prospect->whatsapp, $prospect->codigo);
+                unset($daoProspect);
+                return TRUE;
+             }catch(\Exception $e){
+                throw new \Exception($e);
+             }
+          }
+       }
+       /**
+        * Recebe um objeto do tipo Prospect e envia para a DAO concluir a exclusÃ£o
+        *
+        * @param Prospect $prospect Objeto Prospect informando o cÃ³digo do prospect a ser excluÃ­do
+        * @return TRUE|Exception Retorna TRUE caso a inclusÃ£o tenha sido bem sucedida
+        * ou uma Exception caso nÃ£o tenha.
+        */
+       public function excluirProspect($prospect){
+          $daoProspect = new DAOProspect();
+          try{
+             $daoProspect->excluirProspect($prospect->codigo);
+             unset($daoProspect);
+             return TRUE;
+          }catch(\Exception $e){
+             throw new \Exception($e->getMessage());
+          }
+       }
+       public function buscarProspects($email=null){
+         $daoProspect = new DAOProspect();
+         $prospects = array();
+    
+         if($email === null){
+            $prospects = $daoProspect->buscarProspects();
+            return $prospects;
+         }else{
+            $prospects = $daoProspect->buscarProspects($email);
+            return $prospects;
+         }
+       }
+
+
  }
 
 ?>
