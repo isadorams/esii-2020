@@ -2,8 +2,8 @@
 
 namespace DAO;
 $separador = DIRECTORY_SEPARATOR;
-$root = $_SERVER['DOCUMENT_ROOT'].$separador;
-require_once($root .'prospectcolector/models/Prospect.php');
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once($root .'/esii-2020/models/Prospect.php')
 use models\prospects;
 
 /**
@@ -158,16 +158,13 @@ use models\prospects;
   
      }
      private function conectarBanco(){
-        if (!defined('DS')) {
-           define( 'DS', DIRECTORY_SEPARATOR );
-        }
-        if (!defined('BASE_DIR')) {
-           define( 'BASE_DIR', dirname( __FILE__ ) . DS );
-        }
-        require(BASE_DIR . 'config.php');
+      $ds = DIRECTORY_SEPARATOR;
+      $base_dir = dirname(__FILE__).$ds;
+
+      require($base_dir.'bd_config.php');
   
         try {
-           $conn = new \MySQLi($dbhost, $user, $password, $banco);
+         $conn = new \MySQLi($dbhost, $user, $password, $db);
            return $conn;
         }catch (mysqli_sql_exception $e) {
            throw new \Exception($e);
